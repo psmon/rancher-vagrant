@@ -1,0 +1,35 @@
+# Use postgres/example user/password credentials
+version: '2'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: p102938
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - pgdata:/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432
+    labels:
+      io.rancher.scheduler.affinity:host_label: postgres=true
+      io.rancher.container.hostname_override: container_name
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 54320:8080
+    labels:
+      io.rancher.scheduler.affinity:host_label: postgres=true
+      io.rancher.container.hostname_override: container_name
+
+      
+volumes:
+  pgdata:
+    driver: rancher-nfs
+    driver_opts:
+      exportBase: /pgdata
+      

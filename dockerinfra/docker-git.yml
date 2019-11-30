@@ -1,0 +1,19 @@
+version: '2'
+services:
+  bitbucket:
+    image: atlassian/bitbucket-server:5.6.1
+    environment:
+      - BITBUCKET_HOME=/var/atlassian/application-data/bitbucket/
+    volumes:
+      - gitdata:/var/atlassian/application-data/bitbucket
+    ports:
+      - 10000:7990/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: host=docker3
+      io.rancher.container.hostname_override: container_name
+volumes:
+  gitdata:
+    driver: rancher-nfs
+    driver_opts:
+      exportBase: /bitbucket
+      

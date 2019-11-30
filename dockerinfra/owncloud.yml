@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+  owncloud:
+    image: owncloud
+    ports:
+     - 8080:80
+    volumes:
+    - owndata:/var/www/html/data
+    - owndata:/var/www/html/config
+    labels:
+      io.rancher.scheduler.affinity:host_label: host=docker1
+      io.rancher.container.hostname_override: container_name
+    links:
+     - postgres:owncloud-db
+
+  postgres:
+    image: postgres:9.6
+    ports:
+     - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=testdb
+    volumes:
+    - owndata:/etc/postgresql
+    - owndata:/var/lib/postgresql
+    labels:
+      io.rancher.scheduler.affinity:host_label: host=docker1
+      io.rancher.container.hostname_override: container_name
+
+volumes:
+  owndata:
+    driver: rancher-nfs
+    driver_opts:
+      exportBase: /owndata

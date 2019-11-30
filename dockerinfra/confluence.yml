@@ -1,0 +1,20 @@
+version: '2'
+services:
+  confluence:
+    image: atlassian/confluence-server:6.7.3
+    restart: always
+    volumes:
+      - wikidata:/var/atlassian/application-data/confluence
+    ports:
+      - 8090:8090/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: host=docker3
+      io.rancher.container.hostname_override: container_name
+    environment:
+      - CATALINA_OPTS=-Xms2000m -Xmx2700m
+volumes:
+  wikidata:
+    driver: rancher-nfs
+    driver_opts:
+      exportBase: /confluence
+

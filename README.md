@@ -40,15 +40,4 @@ rancher 이용한 미니 개발 환경
     Option 1:A dd Container 를 통해 도커 레지트리 주소를 통해 구동가능
     Option 2: Add Stack명령으로 Dockercompose 파일베이스로 추가가능하며
     
-    version: '2'
-    services:
-    labs-morp:
-        image: psmon/labs-morp
-        environment:
-        ASPNETCORE_ENVIRONMENT: Development
-        ports:
-        - 8080:5000/tcp
-        labels:
-        io.rancher.scheduler.affinity:host_label: server=sub1
-        io.rancher.container.hostname_override: container_name
-
+[인프라 샘플](dockerinfra)

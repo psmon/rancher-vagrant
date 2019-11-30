@@ -1,0 +1,11 @@
+version: '2'
+services:
+  labs-morp:
+    image: psmon/labs-morp
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+    - 8080:5000/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: server=sub1
+      io.rancher.container.hostname_override: container_name
