@@ -1,0 +1,11 @@
+version: '2'
+services:
+  node1:
+    image: psmon/node-web-app
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+    - 8081:8080/tcp
+    labels:
+      io.rancher.scheduler.affinity:host_label: server=sub1
+      io.rancher.container.hostname_override: container_name
