@@ -37,7 +37,14 @@ rancher 이용한 미니 개발 환경
 
 # 도커 컨테이너 추가
 
-    Option 1:A dd Container 를 통해 도커 레지트리 주소를 통해 구동가능
+    Option 1: Add Container 를 통해 도커 레지트리 주소를 통해 구동가능
     Option 2: Add Stack명령으로 Dockercompose 파일베이스로 추가가능하며
     
 [인프라 샘플](dockerinfra)
+
+
+# node.js 자동 배포 실습
+
+    docker build -t psmon/node-web-app .
+    docker run -p 49160:8080 -d psmon/node-web-app
+
