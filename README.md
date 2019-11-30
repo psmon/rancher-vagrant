@@ -45,6 +45,6 @@ rancher 이용한 미니 개발 환경
 
 # node.js 자동 배포 실습
 
-    docker build -t psmon/node-web-app .
-    docker run -p 49160:8080 -d psmon/node-web-app
+    docker build -t psmon/node-web-app:latest .
+    docker run -p 8080:8080 -d psmon/node-web-app:latest
 
