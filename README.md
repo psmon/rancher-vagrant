@@ -1,8 +1,15 @@
 # rancher-vagrant
-rancher 이용한 미니 개발 환경
+rancher를 활용하는 미니 개발 환경
+
+실습환경:
+- PROXY : http://proxy.dev.webnori.com/
+- Rancher for Docker : http://docker.webnori.com/
+- 인프라 코드관리 : https://github.com/psmon/rancher-vagrant
+- 도커관리 : https://hub.docker.com/
+
+doc : http://wiki.webnori.com/display/rancher
 
 # SSH 편
-
 ## 로컬컴에서 공개키 생성
 
     ssh-keygen -t rsa       : 생성된 ~/.ssh/id_rsa.pub을 리모트 홈에 복사 
