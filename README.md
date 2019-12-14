@@ -9,6 +9,7 @@ rancher를 활용하는 미니 개발 환경
 
 doc : http://wiki.webnori.com/display/rancher
 
+
 # SSH 편
 ## 로컬컴에서 공개키 생성
 
@@ -45,13 +46,18 @@ doc : http://wiki.webnori.com/display/rancher
 # 도커 컨테이너 추가
 
     Option 1: Add Container 를 통해 도커 레지트리 주소를 통해 구동가능
-    Option 2: Add Stack명령으로 Dockercompose 파일베이스로 추가가능하며
+    Option 2: Add Stack명령으로 Dockercompose 파일베이스로 추가가능
+    Option 3: 기본 환경이 Cattle이며 Swarm/Kuber 환경도 추가가능
+    Option 4: 온프레미스 이지만, 다양한 클라우드 이용가능
     
 [인프라 샘플](dockerinfra)
 
 
 # node.js 자동 배포 실습
 
-    docker build -t psmon/node-web-app:latest .
+    docker build -t hub.webnori.com/node-web-app:latest .
     docker run -p 8080:8080 -d psmon/node-web-app:latest
+
+    docker login hub.webnori.com
+    docker push hub.webnori.com/node-web-app:latest
 

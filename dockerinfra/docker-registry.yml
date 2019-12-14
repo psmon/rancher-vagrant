@@ -10,9 +10,11 @@ services:
           REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
           REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
         volumes:
-          - /path/data:/var/lib/registry
-          - /path/certs:/certs
-          - /path/auth:/auth
+          - /data:/var/lib/registry          
+          - /auth2:/auth
         labels:
             io.rancher.scheduler.affinity:host_label: server=sub1
             io.rancher.container.hostname_override: container_name
+
+# mkdir auth
+# docker run --entrypoint htpasswd registry:2 -Bbn psguest psguest > auth/htpasswd
