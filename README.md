@@ -29,6 +29,12 @@ doc : http://wiki.webnori.com/display/rancher
     vagrant reload : vm 재시작
     vagrant destroy : vm 삭제
 
+# Vagrant 스냅샷
+
+    vagrant snapshot list :현재 스냅샷 목록을 불려온다
+    vagrant snapshot save [name] : 해당 스냅샷 이름으로 저장한다
+    vagrant snapshot resotere [name] :해당 스냅샷 이름으로 복구한다
+
 ## VM 구조
 
 -docker1 : RancherOS와 Agent 설치
