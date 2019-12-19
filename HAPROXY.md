@@ -17,3 +17,7 @@ sudo cp hub_webnori_com.pem /etc/ssl/private
 sudo cp *.crt /etc/ssl/certs
 
 
+# Haproxy
+    
+    /etc/init.d/haproxy restart
+    systemctl status haproxy.service
