@@ -1,25 +1,16 @@
 # rancher-vagrant
-rancher를 활용하는 미니 개발 환경
 
-실습환경:
+클라우드 종속적이지 않은 인프라 도커 친화적 인프라 구축
+
+VM(virtual box)와 도커(rancher)를 활용하는 미니 개발 환경
+
+구축환경:
 - PROXY : http://proxy.dev.webnori.com/
 - Rancher for Docker : http://docker.webnori.com/
 - 인프라 코드관리 : https://github.com/psmon/rancher-vagrant
-- 도커관리 : https://hub.docker.com/
+- 도커 이미지 관리 : https://hub.webnori.com
 
 doc : http://wiki.webnori.com/display/rancher
-
-
-# SSH 편
-## 로컬컴에서 공개키 생성
-
-    ssh-keygen -t rsa       : 생성된 ~/.ssh/id_rsa.pub을 리모트 홈에 복사 
-## 리모트에 공개키추가
-
-    cat id_rsa.pub >> .ssh/authorized_keys
-## 로컬컴에서 원격 접속
-
-    ssh id@192.168.0.3
 
 # Vagrant명령
 
@@ -41,11 +32,12 @@ doc : http://wiki.webnori.com/display/rancher
 -docker2 : Agent 설치
 -docker3 : Agent 설치
 
-# RancherOS 설치
+# RancherOS 1.6 설치
 
     sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server
 
 # Rancher Agent 설치
+
     # Agent설치명령은 RancherOS 설치후 웹에서 명령어 제공됨
     sudo docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.2.11 http://192.168.56.201/v1/scripts/8AD6C1A249259F7A715C:1546214400000:xR6wKh3ny8yQvIRxomDD6miSo
 

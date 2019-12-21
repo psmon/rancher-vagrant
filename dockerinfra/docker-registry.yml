@@ -13,7 +13,7 @@ services:
           - /data:/var/lib/registry          
           - /auth2:/auth
         labels:
-            io.rancher.scheduler.affinity:host_label: server=sub1
+            io.rancher.scheduler.affinity:host_label: server=main
             io.rancher.container.hostname_override: container_name
 
 # mkdir auth
